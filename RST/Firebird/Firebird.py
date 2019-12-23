@@ -1,12 +1,17 @@
 import fdb
+import getpass
 
 print('Введите путь до базы(Используйте localhost при подключении к локальной базе)')
 path = input()
+kov_path = repr(str(path))
 print('Введите логин')
 username = input()
+kov_user = repr(str(username))
 print('Введите пароль')
-password = input()
-con = fdb.connect(dsn=repr(str(path)), user=repr(str(username)), password=repr(str(password)))
+password = getpass.getpass()
+kov_pass = repr(str(password))
+print(password)
+con = fdb.connect(dsn= kov_path, user= kov_user, password=kov_pass)
 
 cur = con.cursor() #Cursos объект
 
